@@ -28,12 +28,13 @@ int main(int argc, const char * argv[]) {
     }*/
     TPolynom pol1;
     TPolynom pol2;
-    
+    cout << "Enter first polynomial:" << endl;
     cin >> pol1;
     cout << "Pol1: " << pol1 << endl;
+    cout << "Enter second polynomial:" << endl;
     cin >> pol2;
     cout << "Pol2: " << pol2 << endl;
     pol1+= pol2;
-    cout << pol1 << endl;
+    cout << "pol1 += pol2: " << pol1 << endl;
     return 0;
 }

@@ -18,15 +18,15 @@ struct TMonom{
         coeff = 0;
         px = py = pz =0;
     }
-    bool operator ==(TMonom m){
+    bool operator ==(const TMonom m) const{
         return px == m.px && py == m.py && pz == m.pz;
     }
 
-	bool operator !=(TMonom m) {
+	bool operator !=(const TMonom m) const{
 		return px != m.px || py != m.py || pz != m.pz;
 	}
     
-    bool operator >(TMonom m){
+    bool operator >(const TMonom m) const{
         if (px != m.px){
             return px > m.px;
         } else if (py != m.py){
@@ -34,7 +34,7 @@ struct TMonom{
         } else return pz > m.pz;
     }
     
-    bool operator <(TMonom m){
+    bool operator <(const TMonom m) const{
            if (px != m.px){
                return px < m.px;
            } else if (py != m.py){
@@ -270,7 +270,7 @@ public:
         TNode<TMonom> *i1, *i2;
         i1 = pFirst;
         i2 = pol.pFirst;
-        while (i1->val == i2->val && i1 != pStop && i2 != pStop) {
+        while (i1->val == i2->val && i1 != pStop && i2 != pStop && i1->val.coeff == i2->val.coeff) {
             i1 = i1->pNext;
             i2 = i2->pNext;
         }
