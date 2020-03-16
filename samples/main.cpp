@@ -12,7 +12,7 @@ using namespace std;
 #define size 2
 
 int main(int argc, const char * argv[]) {
-    int arr1[size][2];
+    /*int arr1[size][2];
     int arr2[size][2];
     for (int i = 0; i < size; i++) {
         cout << "Enter coeff" << endl;
@@ -25,10 +25,13 @@ int main(int argc, const char * argv[]) {
         cin >> arr2[i][0];
         cout << "Enter powers" << endl;
         cin >> arr2[i][1];
-    }
-    TPolynom pol1(arr1, size);
-    TPolynom pol2(arr2, size);
+    }*/
+    TPolynom pol1;
+    TPolynom pol2;
+    
+    cin >> pol1;
     cout << "Pol1: " << pol1 << endl;
+    cin >> pol2;
     cout << "Pol2: " << pol2 << endl;
     pol1+= pol2;
     cout << pol1 << endl;

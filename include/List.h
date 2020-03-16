@@ -21,6 +21,10 @@ struct TMonom{
     bool operator ==(TMonom m){
         return px == m.px && py == m.py && pz == m.pz;
     }
+
+	bool operator !=(TMonom m) {
+		return px != m.px || py != m.py || pz != m.pz;
+	}
     
     bool operator >(TMonom m){
         if (px != m.px){
@@ -272,6 +276,10 @@ public:
         }
         return (i1 == pStop) && (i2 == pol.pStop);
     }
+
+	bool operator!=(const TPolynom &pol) const {
+		return !((*this) == pol);
+	}
     
     void operator+= (TMonom& mon){
         for (Reset(); !IsEnd(); GoNext()) {
@@ -347,4 +355,23 @@ public:
         os << endl;
         return os;
     }
+
+    friend istream& operator>>(istream& in, TPolynom& P)
+	{
+		
+		TMonom mon;
+		double coeff = 1;
+		int px = 0, py = 0, pz = 0;
+		while (coeff != 0)
+		{
+			in >> coeff >> px >> py >> pz;
+			mon.coeff = coeff;
+			mon.px = px;
+			mon.py = py;
+			mon.pz = pz;
+            if(coeff != 0)
+			P += mon;
+		}
+		return in;
+	}
 };
