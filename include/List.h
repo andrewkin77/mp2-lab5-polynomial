@@ -102,6 +102,8 @@ public:
         tmp->pNext = pFirst;
         tmp->val = el;
         pFirst = tmp;
+        if(pCurr == pFirst->pNext)
+            pPrev = pFirst;
         if (pLast == pStop) pLast = tmp;
         len++;
         pos++;
@@ -364,12 +366,14 @@ public:
 		int px = 0, py = 0, pz = 0;
 		while (coeff != 0)
 		{
-			in >> coeff >> px >> py >> pz;
+            in >> coeff;
+            if(!coeff)
+                break;
+            in >> px >> py >> pz;
 			mon.coeff = coeff;
 			mon.px = px;
 			mon.py = py;
 			mon.pz = pz;
-            if(coeff != 0)
 			P += mon;
 		}
 		return in;
